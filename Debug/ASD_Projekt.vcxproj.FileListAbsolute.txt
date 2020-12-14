@@ -1,0 +1,2 @@
+C:\Users\mast3\source\repos\ASD_Projekt\Debug\ASD_Projekt.exe
+C:\Users\mast3\source\repos\ASD_Projekt\Debug\ASD_Projekt.pdb
