@@ -3,21 +3,38 @@ using namespace std;
 
 struct two3
 {
-	string miasto1, miasto2, miasto3;
+	string miasto1="0", miasto2="0", miasto3="0";
 	two3* root = NULL;
 	two3* left = NULL;
 	two3* middle = NULL;
 	two3* right = NULL;
+	bool isLeaf = false;
+	bool isRoot = false;
 };
-void insert(string data)
+void insert(string data, two3* drzewo)
 {
-
+	if(drzewo->miasto1 == "0")
+	{
+		drzewo->miasto1 = data;
+	}
+	else if (drzewo->miasto1 != "0" && drzewo->miasto3 == "0" && drzewo->isRoot == true && drzewo->left == NULL && drzewo->middle == NULL && drzewo->right == NULL)
+	{
+		drzewo->miasto3 = data;
+		if (drzewo->miasto1 > drzewo->miasto3)
+		{
+			string temp = drzewo->miasto1;
+			drzewo->miasto1 = drzewo->miasto3;
+			drzewo->miasto3 = temp;
+		}
+	}
 
 }
 
 int main()
 {
 	two3 drzewo;
+	drzewo.root = &drzewo;
+	drzewo.isRoot = true;
 	int input;
 	string miasto;
 	cout << "Wybierz:\n1) Aby dodac\n2) Aby usunac\n3) Aby znalezc\n4) Aby znalezc liczbe\n";
@@ -25,7 +42,8 @@ int main()
 	if (input == 1)
 	{
 		cout << "Podaj nazwe miasta\n";
-			cin >> miasto;
+		cin >> miasto;
+		insert(miasto, &drzewo);
 	}
 	else if (input == 2)
 	{
